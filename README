@@ -31,7 +31,22 @@ CONFIGURATIONS
     access or now (same as access) or modification.
 
   (num unit)+
-    e.g.) 10 years 7 days 1 hour 30 minutes 45 seconds
+    Dtetime string. num should be integer value and unit is one of
+
+      * years
+      * months
+      * weeks
+      * days
+      * hours
+      * minutes
+      * seconds
+
+    Last 's' can be omiited.
+
+    e.g)
+
+      * 10 years
+      * 7 days 1 hour 30 minutes 45 seconds
 
 SEE ALSO
     mod_expires <http://httpd.apache.org/docs/2.2/en/mod/mod_expires.html>
