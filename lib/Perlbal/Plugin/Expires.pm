@@ -168,9 +168,22 @@ B<access> or B<now> (same as access) or B<modification>.
 
 =head2 (num unit)+
 
-e.g.)
-  10 years
-  7 days 1 hour 30 minutes 45 seconds
+Dtetime string. B<num> should be integer value and B<unit> is one of
+
+  * years
+  * months
+  * weeks
+  * days
+  * hours
+  * minutes
+  * seconds
+
+Last 's' can be omiited.
+
+e.g)
+
+  * 10 years
+  * 7 days 1 hour 30 minutes 45 seconds
 
 =head1 SEE ALSO
 
