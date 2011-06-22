@@ -94,6 +94,7 @@ sub _base_time {
 my %__unit2sec = (
     years   => 365 * 24 * 60 * 60,
     year    => 365 * 24 * 60 * 60,
+    months  =>  31 * 24 * 60 * 60,
     month   =>  31 * 24 * 60 * 60,
     weeks   =>   7 * 24 * 60 * 60,
     week    =>   7 * 24 * 60 * 60,
