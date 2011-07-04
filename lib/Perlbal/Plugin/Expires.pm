@@ -165,11 +165,11 @@ Content-Type. Supported MIME Types on Perlbal web server is listed in $Perlbal::
 
 =head2 base
 
-B<access> or B<now> (same as access) or B<modification>.
+B<access>, B<now> (same as access) or B<modification>.
 
 =head2 (num unit)+
 
-Dtetime string. B<num> should be integer value and B<unit> is one of
+Datetime string. B<num> should be integer value and B<unit> is one of
 
   * years
   * months
