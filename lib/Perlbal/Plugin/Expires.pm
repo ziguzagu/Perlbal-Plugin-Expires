@@ -154,20 +154,22 @@ of perlbal webserver the same way as Apache mode_expires.
 
   Expires [service] <type> = <base> plus (<num> <unit>)+
 
-=head2 service
+=over 4
+
+=item * service
 
 You can specify service name explicily to apply expires.
 Default is last created service.
 
-=head2 type
+=item * type
 
 Content-Type. Supported MIME Types on Perlbal web server is listed in $Perlbal::ClientHTTPBase::MimeType.
 
-=head2 base
+=item * base
 
 B<access>, B<now> (same as access) or B<modification>.
 
-=head2 (num unit)+
+=item * (num unit)+
 
 Datetime string. B<num> should be integer value and B<unit> is one of
 
@@ -185,6 +187,8 @@ e.g)
 
   * 10 years
   * 7 days 1 hour 30 minutes 45 seconds
+
+=back
 
 =head1 SEE ALSO
 
