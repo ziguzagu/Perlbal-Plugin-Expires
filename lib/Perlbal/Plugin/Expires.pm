@@ -163,7 +163,7 @@ Default is last created service.
 
 =item * type
 
-Content-Type. Supported MIME Types on Perlbal web server is listed in $Perlbal::ClientHTTPBase::MimeType.
+Content-Type. Supported MIME Types on Perlbal web server are listed in $Perlbal::ClientHTTPBase::MimeType.
 
 =item * base
 
