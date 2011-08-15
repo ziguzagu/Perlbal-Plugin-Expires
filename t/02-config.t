@@ -20,9 +20,13 @@ CREATE SERVICE web
 ENABLE web
 CONF
 
+## _base_time() use time() to calculate the time when 'access' is set as type.
+## so it should be returned the fixed value from that function for tests.
 my $now = time;
-no warnings 'once';
-*CORE::GLOBAL::time = sub { $now };
+{
+    no warnings 'once';
+    *CORE::GLOBAL::time = sub { $now };
+}
 
 my $msock = Perlbal::Test::start_server($conf);
 ok $msock;
