@@ -19,34 +19,38 @@ DESCRIPTION
 CONFIGURATIONS
       Expires [service] <type> = <base> plus (<num> <unit>)+
 
-  service
-    You can specify service name explicily to apply expires. Default is last
-    created service.
+    *   service
 
-  type
-    Content-Type. Supported MIME Types on Perlbal web server is listed in
-    $Perlbal::ClientHTTPBase::MimeType.
+        You can specify service name explicitly to apply expires. Default is
+        last created service.
 
-  base
-    access or now (same as access) or modification.
+    *   type
 
-  (num unit)+
-    Dtetime string. num should be integer value and unit is one of
+        Content-Type. Supported MIME Types on Perlbal web server are listed
+        in $Perlbal::ClientHTTPBase::MimeType.
 
-      * years
-      * months
-      * weeks
-      * days
-      * hours
-      * minutes
-      * seconds
+    *   base
 
-    Last 's' can be omiited.
+        access, now (same as access) or modification.
 
-    e.g)
+    *   (num unit)+
 
-      * 10 years
-      * 7 days 1 hour 30 minutes 45 seconds
+        Datetime string. num should be integer value and unit is one of
+
+          * years
+          * months
+          * weeks
+          * days
+          * hours
+          * minutes
+          * seconds
+
+        Last 's' can be omiited.
+
+        e.g)
+
+          * 10 years
+          * 7 days 1 hour 30 minutes 45 seconds
 
 SEE ALSO
     mod_expires <http://httpd.apache.org/docs/2.2/en/mod/mod_expires.html>
