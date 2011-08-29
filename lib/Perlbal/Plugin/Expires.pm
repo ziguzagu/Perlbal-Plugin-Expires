@@ -158,7 +158,7 @@ of perlbal webserver the same way as Apache mode_expires.
 
 =item * service
 
-You can specify service name explicily to apply expires.
+You can specify service name explicitly to apply expires.
 Default is last created service.
 
 =item * type
