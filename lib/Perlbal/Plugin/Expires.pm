@@ -8,8 +8,6 @@ our $VERSION = '0.01';
 use Perlbal;
 use HTTP::Date;
 
-my %__expires;
-
 sub load {
     my $class = @_;
 
@@ -37,7 +35,6 @@ sub unregister {
     my ($class, $svc) = @_;
 
     $svc->unregister_hooks('Expires');
-    delete $__expires{$svc->{name}};
 
     return 1;
 }
@@ -56,7 +53,9 @@ sub _config_expires {
     my $sec = eval { _expires_to_sec($expires) }
         or return $mc->err($@);
 
-    $__expires{$service}{$type} = {
+    my $svc = Perlbal->service($service);
+    my $config = $svc->{extra_config}->{__expires} ||= {};
+    $config->{$type} = {
         base => $base,
         time => $sec,
     };
@@ -70,10 +69,11 @@ sub _set_expires {
     my Perlbal::HTTPHeaders    $res    = $client->{res_headers} or return;
 
     return if $res->response_code ne '200';
-    return unless exists $__expires{$svc->{name}};
+    return unless exists $svc->{extra_config}{__expires};
 
     my $type    = $res->header('Content-Type') || 'default';
-    my $expires = $__expires{$svc->{name}}{$type} || $__expires{$svc->{name}}{default}
+    my $config  = $svc->{extra_config}{__expires};
+    my $expires = $config->{$type} || $config->{default}
         or return;
 
     my $base = _base_time($expires->{base}, $res->header('Last-Modified'));
