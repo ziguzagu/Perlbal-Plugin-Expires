@@ -29,7 +29,13 @@ sub register {
     return 1;
 }
 
-sub unload { 1 }
+sub unload {
+    my $class = shift;
+    
+    Perlbal::unregister_global_hook('manage_command.expires');
+
+    return 1;
+}
 
 sub unregister {
     my ($class, $svc) = @_;
