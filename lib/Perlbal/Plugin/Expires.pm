@@ -9,7 +9,7 @@ use Perlbal;
 use HTTP::Date;
 
 sub load {
-    my $class = @_;
+    my $class = shift;
 
     Perlbal::register_global_hook('manage_command.expires' => \&_config_expires);
 
@@ -17,7 +17,8 @@ sub load {
 }
 
 sub register {
-    my ($class, $svc) = @_;
+    my $class = shift;
+    my ($svc) = @_;
 
     die "Expires plugin must run as web_server role\n"
         unless $svc && $svc->{role} eq 'web_server';
@@ -38,7 +39,8 @@ sub unload {
 }
 
 sub unregister {
-    my ($class, $svc) = @_;
+    my $class = shift;
+    my ($svc) = @_;
 
     $svc->unregister_hooks('Expires');
 
