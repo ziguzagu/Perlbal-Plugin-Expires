@@ -66,6 +66,7 @@ sub _config_expires {
     $config->{$type} = {
         base => $base,
         time => $sec,
+        orig => $expires,
     };
 
     return $mc->ok;
@@ -130,6 +131,20 @@ sub _expires_to_sec {
     }
 
     return $sec;
+}
+
+sub dumpconfig {
+    my $class = shift;
+    my ($svc) = @_;
+
+    my $expires = $svc->{extra_config}->{__expires} or return;
+
+    my @config;
+    while (my ($type, $expire) = each %$expires) {
+        push @config, sprintf(qq{Expires $type = %s plug %s}, $expire->{base}, $expire->{orig});
+    }
+
+    return @config;
 }
 
 1;
