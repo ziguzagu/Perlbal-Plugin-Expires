@@ -10,3 +10,4 @@ blib
 .*
 !.gitignore
 !.shipit
+!.travis.yml

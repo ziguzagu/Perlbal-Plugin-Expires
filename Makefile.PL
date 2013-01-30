@@ -12,4 +12,6 @@ tests 't/*.t';
 author_tests 'xt';
 # misc
 auto_include;
+auto_set_repository;
+
 WriteAll;
